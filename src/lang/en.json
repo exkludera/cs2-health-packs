@@ -1,0 +1,6 @@
+{
+  "pack_dropped": "{bluegrey}Pack dropped by {white}{0}{bluegrey}, heals {white}{1} {bluegrey}HP",
+  "pack_used": "{bluegrey}Picked up a pack, healed {white}{0} {bluegrey}HP",
+  "pack_destroyed": "{bluegrey}Pack destroyed, you are already at max health",
+  "pack_ignored": "{bluegrey}Pack ignored, you are already at max health"
+}
