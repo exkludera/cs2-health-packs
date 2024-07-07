@@ -62,8 +62,8 @@ namespace HealthPacks
                 }
                 else
                 {
-                    //PlaySound(client, Config.sounds.OnPickupFailSound);
-                    //ChatMessage(client, Localizer["pack_ignored"]);
+                    PlaySound(client, Config.Sounds.PickupSound);
+                    ChatMessage(client, Localizer["pack_ignored"]);
                     Debug("Pack Ignored");
                 }
             }

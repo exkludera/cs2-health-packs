@@ -7,7 +7,7 @@ namespace HealthPacks
         public override string ModuleName => "Health Packs";
         public override string ModuleAuthor => "exkludera";
         public override string ModuleDescription => "dead players drop health packs";
-        public override string ModuleVersion => "1.0";
+        public override string ModuleVersion => "1.0.1";
 
         public override void Load(bool hotReload)
         {

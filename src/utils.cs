@@ -15,6 +15,7 @@ namespace HealthPacks
 
         public int maxPackCount = 64;
         public int PackCount = 0;
+        public int Tickrate { get; set; } = 0;
 
         public void LogMessage(string message) => Logger.LogInformation($" > [HealthPack] {message}");
         public void Debug(string message) { if (Config.Debug) Logger.LogDebug($" > [HealthPack DEBUG] {message}"); }

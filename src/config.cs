@@ -20,7 +20,7 @@ namespace HealthPacks
         {
             public string Model { get; set; } = "models/chicken/chicken_roasted.vmdl";
             public float DeleteTimer { get; set; } = 10;
-            public bool DeleteIfFullHealth { get; set; } = true;
+            public bool DeleteIfFullHealth { get; set; } = false;
             public int SpawnHeight { get; set; } = 10;
             public int MaxCount { get; set; } = 64;
         }

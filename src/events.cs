@@ -30,6 +30,13 @@ namespace HealthPacks
 
         public void TickCalculatePack()
         {
+            Tickrate++;
+
+            if (Tickrate != 64)
+                return;
+
+            Tickrate = 0;
+
             Utilities.GetPlayers().ForEach(player =>
             {
                 if (player is { PawnIsAlive: true, IsBot: false, IsValid: true })
