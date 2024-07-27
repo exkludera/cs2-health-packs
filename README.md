@@ -1,5 +1,5 @@
 # cs2-health-packs
-**this plugin drops health packages when players die**
+**a plugin that drops health packages when players die**
 
 <br>
 
@@ -8,10 +8,19 @@
 	<img src="https://github.com/user-attachments/assets/6b6c97c4-fb99-424e-82d0-065a655a3e6a" width="400"> <br>
 	<img src="https://github.com/user-attachments/assets/636f96c3-14c4-40d9-b030-5f1ba86272bb" width="350"> <br>
 	<img src="https://github.com/user-attachments/assets/c78d1ccb-df27-4a93-9db3-0f09f3879667" width="350"> <br>
-  I could show more but I'm lazy 🐱
+  	I could show more but I'm lazy 🐱
 </details>
 
-## information
+<br>
+
+## information:
+
+### requirements
+- [MetaMod](https://cs2.poggu.me/metamod/installation)
+- [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp)
+
+<br>
+
 > [!NOTE]
 > inspired by [[CS:GO] Drop Random Health Pack](https://forums.alliedmods.net/showthread.php?t=193359)
 > 
@@ -19,7 +28,7 @@
 
 <img src="https://media.discordapp.net/attachments/1051988905320255509/1146537451750432778/ezgif.com-video-to-gif_2.gif?ex=66a359f6&is=66a20876&hm=768e346857f44792cf5b2917fe55b525522029ecccac95bb765b881baa6660d7&" width="250">>
 
-## config
+## example config
 ```json
 {
   "Settings": {
