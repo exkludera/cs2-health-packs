@@ -1,18 +1,15 @@
 # cs2-health-packs
 **this plugin drops health packages when players die**
-> request from counterstrikesharp discord
 
 <br>
 
 <details>
 	<summary>showcase</summary>
-	<img src="https://media.discordapp.net/attachments/901988124178145330/1266093924175450142/image.png?ex=66a3e55a&is=66a293da&hm=24bd4e85da935197ddf472f439119106f075ff90553f4144766a5170e1a36fd8&=&format=webp&quality=lossless" width="400"> <br>
-	<img src="https://media.discordapp.net/attachments/901988124178145330/1266093924460658829/image.png?ex=66a3e55a&is=66a293da&hm=5883c8f756cd343f20cfb0265239b15ea3bfef6486f99b179ea2d025583354f7&=&format=webp&quality=lossless" width="350"> <br>
-	<img src="https://media.discordapp.net/attachments/901988124178145330/1266093924691480798/image.png?ex=66a3e55a&is=66a293da&hm=145a86047927bdf46e0243ccc78ef7c1139ee0effb084fbf9a64cfaf7a9df7b0&=&format=webp&quality=lossless" width="350"> <br>
+	<img src="https://github.com/user-attachments/assets/6b6c97c4-fb99-424e-82d0-065a655a3e6a" width="400"> <br>
+	<img src="https://github.com/user-attachments/assets/636f96c3-14c4-40d9-b030-5f1ba86272bb" width="350"> <br>
+	<img src="https://github.com/user-attachments/assets/c78d1ccb-df27-4a93-9db3-0f09f3879667" width="350"> <br>
   I could show more but I'm lazy 🐱
 </details>
-
-<br>
 
 ## information
 > [!NOTE]
