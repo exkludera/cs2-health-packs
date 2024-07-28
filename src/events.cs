@@ -39,20 +39,20 @@ namespace HealthPacks
 
             Utilities.GetPlayers().ForEach(player =>
             {
-                if (player is { PawnIsAlive: true, IsBot: false, IsValid: true })
+                if (!player.PawnIsAlive || player.IsBot)
+                    return;
+
+                foreach (var kvp in groupedEntities)
                 {
-                    foreach (var kvp in groupedEntities)
-                    {
-                        string key = kvp.Key;
-                        CBaseEntity entity = kvp.Value;
+                    string key = kvp.Key;
+                    CBaseEntity entity = kvp.Value;
 
-                        Vector position = entity.AbsOrigin!;
+                    Vector position = entity.AbsOrigin!;
 
-                        float distance = DistanceTo(position, player.Pawn?.Value!.CBodyComponent?.SceneNode!.AbsOrigin!);
+                    float distance = DistanceTo(position, player.Pawn?.Value!.CBodyComponent?.SceneNode!.AbsOrigin!);
 
-                        if (distance < Config.Settings.PickupDistance)
-                            PackTouched(player, kvp.Key);
-                    }
+                    if (distance < Config.Settings.PickupDistance)
+                        PackTouched(player, kvp.Key);
                 }
             });
         }

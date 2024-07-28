@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace HealthPacks
 {
-    public class ConfigSettings : BasePluginConfig
+    public class Config : BasePluginConfig
     {
         public class SettingsClass
         {
