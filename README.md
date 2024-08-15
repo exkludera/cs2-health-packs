@@ -64,4 +64,4 @@
 }
 ```
 
-<br> <a href='https://ko-fi.com/exkludera' target='_blank'><img src='https://cdn.ko-fi.com/cdn/kofi5.png' height='48px' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<br> <a href='https://ko-fi.com/exkludera' target='blank'><img src='https://cdn.ko-fi.com/cdn/kofi5.png' height='48px' alt='Buy Me a Coffee at ko-fi.com'></a>
