@@ -3,11 +3,14 @@
 
 <br>
 
-<details>
-	<summary>showcase</summary>
 
-	<img src="https://github.com/user-attachments/assets/636f96c3-14c4-40d9-b030-5f1ba86272bb" width="350"> <br>
-	<img src="https://github.com/user-attachments/assets/c78d1ccb-df27-4a93-9db3-0f09f3879667" width="350"> <br>
+<details>
+<summary>showcase</summary>
+	
+https://github.com/user-attachments/assets/ad2c8460-7737-4e27-9467-aefc9f25a80b
+
+<img src="https://github.com/user-attachments/assets/636f96c3-14c4-40d9-b030-5f1ba86272bb" width="350"> <br>
+<img src="https://github.com/user-attachments/assets/c78d1ccb-df27-4a93-9db3-0f09f3879667" width="350"> <br>
 </details>
 
 <br>
@@ -15,7 +18,7 @@
 ## information:
 
 ### requirements
-- [MetaMod](https://cs2.poggu.me/metamod/installation)
+- [MetaMod](https://github.com/alliedmodders/metamod-source)
 - [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp)
 
 <br>
