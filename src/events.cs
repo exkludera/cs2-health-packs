@@ -1,65 +1,61 @@
-﻿using CounterStrikeSharp.API;
-using CounterStrikeSharp.API.Core;
+﻿using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 
-namespace HealthPacks
+public partial class Plugin
 {
-    public partial class HealthPacks
+    void ServerPrecacheResources(ResourceManifest manifest)
     {
-        public HookResult RoundStart(EventRoundStart @event, GameEventInfo info)
+        string model = Config.Entity.Model;
+        if (!string.IsNullOrEmpty(model))
+            manifest.AddResource(model);
+
+        string soundevent = Config.Sounds.SoundEvent;
+        if (!string.IsNullOrEmpty(soundevent))
+            manifest.AddResource(soundevent);
+    }
+
+    HookResult EventRoundStart(EventRoundStart @event, GameEventInfo info)
+    {
+        ClearPacks();
+
+        return HookResult.Continue;
+    }
+
+    HookResult EventPlayerDeath(EventPlayerDeath @event, GameEventInfo info)
+    {
+        var player = @event.Userid;
+        if (player == null) return HookResult.Continue;
+
+        if (PackCount >= maxPackCount)
         {
-            PackCount = 0;
-            groupedEntities.Clear();
-            DropTimers.Clear();
+            LogMessage($"Too many entities spawned, max is {maxPackCount}");
             return HookResult.Continue;
         }
 
-        public HookResult PlayerDeath(EventPlayerDeath @event, GameEventInfo info)
-        {
-            if (PackCount >= maxPackCount)
-            {
-                LogMessage($"Too many entities spawned, max is {maxPackCount}");
-                return HookResult.Continue;
-            }
+        if (Config.Settings.AlwaysDrop || RandomPercent(Config.Settings.DropPercentage))
+            CreatePack(player);
 
-            if (Config.Settings.AlwaysDrop || RandomPercent(Config.Settings.DropPercentage))
-                CreatePack(@event.Userid!);
+        return HookResult.Continue;
+    }
 
+    HookResult trigger_multiple(CEntityIOOutput output, string name, CEntityInstance activator, CEntityInstance caller, CVariant value, float delay)
+    {
+        if (activator.DesignerName != "player")
             return HookResult.Continue;
-        }
 
-        public void TickCalculatePack()
-        {
-            Tickrate++;
+        var pawn = activator.As<CCSPlayerPawn>();
+        if (pawn == null || !pawn.IsValid)
+            return HookResult.Continue;
 
-            if (Tickrate != 64)
-                return;
+        var player = pawn.OriginalController?.Value?.As<CCSPlayerController>();
+        if (player == null || player.IsBot)
+            return HookResult.Continue;
 
-            Tickrate = 0;
+        var pack = DroppedPacks.FirstOrDefault(x => x.Value.Trigger == caller).Key;
 
-            Utilities.GetPlayers().ForEach(player =>
-            {
-                if (!player.PawnIsAlive || player.IsBot)
-                    return;
+        if (pack != null)
+            PackTouched(player, pack);
 
-                foreach (var kvp in groupedEntities)
-                {
-                    string key = kvp.Key;
-                    CBaseEntity entity = kvp.Value;
-
-                    Vector position = entity.AbsOrigin!;
-
-                    float distance = DistanceTo(position, player.Pawn?.Value!.CBodyComponent?.SceneNode!.AbsOrigin!);
-
-                    if (distance < Config.Settings.PickupDistance)
-                        PackTouched(player, kvp.Key);
-                }
-            });
-        }
-
-        public void ServerPrecacheResources(ResourceManifest manifest)
-        {
-            manifest.AddResource(Config.Entity.Model);
-        }
+        return HookResult.Continue;
     }
 }

@@ -5,10 +5,9 @@
 
 <details>
 	<summary>showcase</summary>
-	<img src="https://github.com/user-attachments/assets/6b6c97c4-fb99-424e-82d0-065a655a3e6a" width="400"> <br>
+
 	<img src="https://github.com/user-attachments/assets/636f96c3-14c4-40d9-b030-5f1ba86272bb" width="350"> <br>
 	<img src="https://github.com/user-attachments/assets/c78d1ccb-df27-4a93-9db3-0f09f3879667" width="350"> <br>
-  	I could show more but I'm lazy 🐱
 </details>
 
 <br>
@@ -22,8 +21,6 @@
 <br>
 
 > [!NOTE]
-> ty @heartbreakhotel from cssharp discord for distance calculation
-> 
 > inspired by [[CS:GO] Drop Random Health Pack](https://forums.alliedmods.net/showthread.php?t=193359)
 
 <img src="https://github.com/user-attachments/assets/53e486cc-8da4-45ab-bc6e-eb38145aba36" height="200px"> <br>
@@ -36,16 +33,16 @@
   "Settings": {
     "AlwaysDrop": false,
     "DropPercentage": 50,
-    "DropDelay": 0.1,
+    "DropDelay": 0,
     "HealAmount": 40,
-    "MaxHealth": 100,
-    "PickupDistance": 32
+    "MaxHealth": 100
   },
   "Entity": {
-    "Model": "models/chicken/chicken_roasted.vmdl",
+    "Model": "models/therazu/props/healthpack/healthpack.vmdl",
     "DeleteTimer": 10,
-    "DeleteIfFullHealth": true,
-    "SpawnHeight": 10,
+    "DeleteIfFullHealth": false,
+    "SpawnHeight": 32,
+    "SpawnVelocity": 250,
     "MaxCount": 64
   },
   "Chat": {
@@ -57,10 +54,13 @@
   "Sounds": {
     "Enabled": true,
     "PickupSound": "sounds/buttons/blip1.vsnd",
-    "PickupFailSound": "sounds/buttons/button8.vsnd"
+    "PickupFailSound": "sounds/buttons/button8.vsnd",
+    "SoundEvents": false,
+    "SoundEvent": "soundevents/healthpacks.vsndevts",
+    "PickupEvent": "pack_pickup",
+    "PickupFailEvent": "pack_pickupfail"
   },
-  "Debug": false,
-  "ConfigVersion": 1
+  "Debug": false
 }
 ```
 
