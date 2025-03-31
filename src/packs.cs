@@ -85,7 +85,7 @@ public partial class Plugin
             pawn.Health = newHealth;
             Utilities.SetStateChanged(pawn, "CBaseEntity", "m_iHealth");
 
-            PlaySound(player, Config.Sounds.PickupSound);
+            player.EmitSound(Config.Sounds.PickupSound);
 
             if (Config.Chat.DropAnnounce)
                 ChatMessage(player, Localizer["pack_used", Config.Settings.HealAmount]);
@@ -97,13 +97,13 @@ public partial class Plugin
             if (Config.Entity.DeleteIfFullHealth)
             {
                 RemoveDroppedPack(pack);
-                PlaySound(player, Config.Sounds.PickupFailSound);
+                player.EmitSound(Config.Sounds.PickupFailSound);
                 ChatMessage(player, Localizer["pack_destroyed"]);
                 Debug("Pack Destroyed");
             }
             else
             {
-                PlaySound(player, Config.Sounds.PickupSound);
+                player.EmitSound(Config.Sounds.PickupSound);
                 ChatMessage(player, Localizer["pack_ignored"]);
                 Debug("Pack Ignored");
             }

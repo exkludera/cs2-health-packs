@@ -5,13 +5,16 @@ public partial class Plugin
 {
     void ServerPrecacheResources(ResourceManifest manifest)
     {
-        string model = Config.Entity.Model;
-        if (!string.IsNullOrEmpty(model))
-            manifest.AddResource(model);
+        List<string> resources = new List<string>
+        {
+            Config.Entity.Model, Config.Sounds.SoundEvents
+        };
 
-        string soundevent = Config.Sounds.SoundEvent;
-        if (!string.IsNullOrEmpty(soundevent))
-            manifest.AddResource(soundevent);
+        foreach (string resource in resources)
+        {
+            if (!string.IsNullOrEmpty(resource))
+                manifest.AddResource(resource);
+        }
     }
 
     HookResult EventRoundStart(EventRoundStart @event, GameEventInfo info)

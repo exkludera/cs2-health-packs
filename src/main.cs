@@ -1,12 +1,11 @@
 ﻿using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Translations;
-using System.Runtime.InteropServices;
 
 public partial class Plugin : BasePlugin, IPluginConfig<Config>
 {
     public override string ModuleName => "Health Packs";
     public override string ModuleAuthor => "exkludera";
-    public override string ModuleVersion => "1.0.3";
+    public override string ModuleVersion => "1.0.4";
 
     public override void Load(bool hotReload)
     {
@@ -16,9 +15,6 @@ public partial class Plugin : BasePlugin, IPluginConfig<Config>
         RegisterEventHandler<EventPlayerDeath>(EventPlayerDeath);
 
         HookEntityOutput("trigger_multiple", "OnStartTouch", trigger_multiple, HookMode.Pre);
-
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            EmitSoundExtension.Init();
     }
 
     public override void Unload(bool hotReload)
@@ -29,9 +25,6 @@ public partial class Plugin : BasePlugin, IPluginConfig<Config>
         DeregisterEventHandler<EventPlayerDeath>(EventPlayerDeath);
 
         UnhookEntityOutput("trigger_multiple", "OnStartTouch", trigger_multiple, HookMode.Pre);
-
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            EmitSoundExtension.CleanUp();
     }
 
     public Config Config { get; set; } = new Config();

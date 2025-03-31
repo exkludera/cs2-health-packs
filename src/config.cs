@@ -35,12 +35,9 @@ public class Config : BasePluginConfig
     public class Config_Sounds
     {
         public bool Enabled { get; set; } = true;
-        public string PickupSound { get; set; } = "sounds/buttons/blip1.vsnd";
-        public string PickupFailSound { get; set; } = "sounds/buttons/button8.vsnd";
-        public bool SoundEvents { get; set; } = false;
-        public string SoundEvent { get; set; } = "soundevents/healthpacks.vsndevts";
-        public string PickupEvent { get; set; } = "pack_pickup";
-        public string PickupFailEvent { get; set; } = "pack_pickupfail";
+        public string SoundEvents { get; set; } = "soundevents/healthpacks.vsndevts";
+        public string PickupSound { get; set; } = "pack_pickup";
+        public string PickupFailSound { get; set; } = "pack_pickupfail";
     }
     public Config_Sounds Sounds { get; set; } = new Config_Sounds();
 
