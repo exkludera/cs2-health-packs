@@ -61,11 +61,11 @@ public partial class Plugin
         trigger.CBodyComponent!.SceneNode!.Owner!.Entity!.Flags &= ~(uint)(1 << 2);
         trigger.Collision.SolidType = SolidType_t.SOLID_VPHYSICS;
         trigger.Collision.SolidFlags = 0;
-        trigger.Collision.CollisionGroup = 14;
+        trigger.Collision.CollisionGroup = (byte)CollisionGroup.COLLISION_GROUP_TRIGGER;
 
         trigger.SetModel(pack.CBodyComponent!.SceneNode!.GetSkeletonInstance().ModelState.ModelName);
-        trigger.DispatchSpawn();
         trigger.Teleport(pack.AbsOrigin, pack.AbsRotation);
+        trigger.DispatchSpawn();
         trigger.AcceptInput("FollowEntity", pack, trigger, "!activator");
         trigger.AcceptInput("Enable");
 
