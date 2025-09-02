@@ -4,7 +4,6 @@ public class Config : BasePluginConfig
 {
     public class Config_Settings
     {
-        public bool AlwaysDrop { get; set; } = false;
         public int DropPercentage { get; set; } = 50;
         public float DropDelay { get; set; } = 0f;
         public int HealAmount { get; set; } = 40;

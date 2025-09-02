@@ -34,7 +34,6 @@ https://github.com/user-attachments/assets/ad2c8460-7737-4e27-9467-aefc9f25a80b
 ```json
 {
   "Settings": {
-    "AlwaysDrop": false,
     "DropPercentage": 50,
     "DropDelay": 0,
     "HealAmount": 40,

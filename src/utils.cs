@@ -18,7 +18,7 @@ public partial class Plugin
             Server.PrintToChatAll(Config.Chat.Prefix + message);
     }
 
-    Random random = new Random();
+    Random random = new();
     bool RandomPercent(int percentage)
     {
         if (percentage < 0 || percentage > 100)

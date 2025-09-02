@@ -5,7 +5,7 @@ public partial class Plugin : BasePlugin, IPluginConfig<Config>
 {
     public override string ModuleName => "Health Packs";
     public override string ModuleAuthor => "exkludera";
-    public override string ModuleVersion => "1.0.4";
+    public override string ModuleVersion => "1.0.5";
 
     public override void Load(bool hotReload)
     {

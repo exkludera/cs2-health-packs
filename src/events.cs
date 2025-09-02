@@ -35,7 +35,7 @@ public partial class Plugin
             return HookResult.Continue;
         }
 
-        if (Config.Settings.AlwaysDrop || RandomPercent(Config.Settings.DropPercentage))
+        if (RandomPercent(Config.Settings.DropPercentage))
             CreatePack(player);
 
         return HookResult.Continue;

@@ -24,20 +24,15 @@ public partial class Plugin
             var pack = Utilities.CreateEntityByName<CPhysicsPropOverride>("prop_physics_override")!;
 
             pack.CBodyComponent!.SceneNode!.Owner!.Entity!.Flags &= ~(uint)(1 << 2);
-            pack.EnableUseOutput = false;
 
-            pack.Collision.SolidType = SolidType_t.SOLID_NONE;
-            pack.Collision.SolidFlags = 0;
-
+            pack.Teleport(deathOrigin);
             pack.SetModel(Config.Entity.Model);
             pack.DispatchSpawn();
 
-            pack.Collision.CollisionGroup = (byte)CollisionGroup.COLLISION_GROUP_DISSOLVING;
-            pack.Collision.CollisionAttribute.CollisionGroup = (byte)CollisionGroup.COLLISION_GROUP_DISSOLVING;
-            Utilities.SetStateChanged(pack, "CCollisionProperty", "m_CollisionGroup");
-            Utilities.SetStateChanged(pack, "VPhysicsCollisionAttribute_t", "m_nCollisionGroup");
+            pack.Collision.CollisionGroup = (byte)CollisionGroup.COLLISION_GROUP_WEAPON;
 
-            pack.Teleport(deathOrigin, pawn.AbsRotation, new(0, 0, Config.Entity.SpawnVelocity));
+            pack.AbsVelocity.Z += Config.Entity.SpawnVelocity;
+            pack.Teleport(deathOrigin, pawn.AbsRotation, pack.AbsVelocity);
 
             var trigger = CreateTrigger(pack);
             var timer = AddTimer(Config.Entity.DeleteTimer, () => RemoveDroppedPack(pack), TimerFlags.STOP_ON_MAPCHANGE);
@@ -56,18 +51,19 @@ public partial class Plugin
     {
         var trigger = Utilities.CreateEntityByName<CTriggerMultiple>("trigger_multiple")!;
 
-        trigger.Entity!.Name = pack.Entity!.Name + "_trigger";
         trigger.Spawnflags = 1;
+        trigger.Entity!.Name = pack.Entity!.Name + "_trigger";
         trigger.CBodyComponent!.SceneNode!.Owner!.Entity!.Flags &= ~(uint)(1 << 2);
-        trigger.Collision.SolidType = SolidType_t.SOLID_VPHYSICS;
+
         trigger.Collision.SolidFlags = 0;
-        trigger.Collision.CollisionGroup = (byte)CollisionGroup.COLLISION_GROUP_TRIGGER;
+        trigger.Collision.SolidType = SolidType_t.SOLID_VPHYSICS;
 
         trigger.SetModel(pack.CBodyComponent!.SceneNode!.GetSkeletonInstance().ModelState.ModelName);
-        trigger.Teleport(pack.AbsOrigin, pack.AbsRotation);
+        trigger.Teleport(pack.AbsOrigin, pack.AbsRotation, pack.AbsVelocity);
         trigger.DispatchSpawn();
-        trigger.AcceptInput("FollowEntity", pack, trigger, "!activator");
-        trigger.AcceptInput("Enable");
+        trigger.AcceptInput("SetParent", pack, trigger, "!activator");
+
+        trigger.Collision.CollisionGroup = (byte)CollisionGroup.COLLISION_GROUP_TRIGGER;
 
         return trigger;
     }
