@@ -20,6 +20,7 @@ https://github.com/user-attachments/assets/ad2c8460-7737-4e27-9467-aefc9f25a80b
 ### requirements
 - [MetaMod](https://github.com/alliedmodders/metamod-source)
 - [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp)
+- [MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager)
 
 <br>
 
